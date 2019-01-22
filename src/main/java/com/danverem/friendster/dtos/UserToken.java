@@ -1,6 +1,8 @@
 package com.danverem.friendster.dtos;
 
-public class UserToken {
+import java.io.Serializable;
+
+public class UserToken implements Serializable {
     private String token;
     private UserDTO user;
 

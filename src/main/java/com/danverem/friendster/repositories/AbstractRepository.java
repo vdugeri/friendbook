@@ -174,8 +174,6 @@ public abstract class AbstractRepository<T> {
 
         if (limit > 0) {
             query.setMaxResults(limit);
-        } else {
-            query.setMaxResults(50);
         }
 
         for (Map.Entry<String, Object> entry : rawParams) {

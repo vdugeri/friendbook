@@ -6,11 +6,13 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 @NamedQueries({
-    @NamedQuery( name = User.FIND_BY_USERNAME, query = "SELECT u FROM User u WHERE u.username = :username")
+    @NamedQuery( name = User.FIND_BY_USERNAME, query = "SELECT u FROM User u WHERE u.username = :username"),
+    @NamedQuery(name = User.SEARCH, query = "SELECT u FROM User u WHERE u.username LIKE :param OR u.emailAddress LIKE :param OR u.firstName LIKE :param OR u.lastName LIKE :param")
 })
 public class User {
 
     public static final String FIND_BY_USERNAME = "User.findByUsername";
+    public static final String SEARCH = "user.findByAllAttributes";
 
     @Id
     @Column(name = "id")
