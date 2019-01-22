@@ -1,5 +1,6 @@
 package com.danverem.friendster.dtos;
 
+import com.danverem.friendster.utils.PasswordHash;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
@@ -62,6 +63,10 @@ public class UserDTO implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void hashPassword() {
+        setPassword(new PasswordHash().hash(this.password.toCharArray()));
     }
 
     @Override

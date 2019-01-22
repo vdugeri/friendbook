@@ -26,6 +26,7 @@ public class UserService {
     }
 
     public UserDTO save(UserDTO userDTO) {
+        userDTO.hashPassword();
         return UserMapper.mapTo(userRepository.create(UserMapper.mapTo(userDTO)));
     }
 
